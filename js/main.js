@@ -55,13 +55,24 @@
 
   /* ---- testimonials slider ---- */
   var slider = document.querySelector('.t-slider');
-  if (slider) {
-    var quotes = JSON.parse(slider.getAttribute('data-quotes') || '[]');
-    var quoteEl = slider.querySelector('.t-quote span');
+  var dataEl = document.getElementById('testimonials-data');
+  if (slider && dataEl) {
+    var items = [];
+    try { items = JSON.parse(dataEl.textContent); } catch (e) { items = []; }
+    var quoteEl = slider.querySelector('.t-quote');
+    var nameEl = slider.querySelector('.t-name');
+    var roleEl = slider.querySelector('.t-role');
     var dotsWrap = slider.querySelector('.t-dots');
     var idx = 0, timer = null;
 
-    quotes.forEach(function (_, i) {
+    // "DORI KOREN Deputy Chief | LVMPD" -> name (leading caps) + role (rest)
+    function splitCite(cite) {
+      var m = cite.match(/^([A-Z][A-Z.\s()]+?)\s+([A-Z][a-z].*)$/);
+      if (m) return { name: m[1].trim(), role: m[2].trim() };
+      return { name: cite, role: '' };
+    }
+
+    items.forEach(function (_, i) {
       var d = document.createElement('button');
       d.className = 't-dot' + (i === 0 ? ' active' : '');
       d.setAttribute('aria-label', 'Testimonial ' + (i + 1));
@@ -70,17 +81,47 @@
     });
 
     function render() {
-      quoteEl.textContent = quotes[idx];
+      var it = items[idx];
+      var c = splitCite(it.cite || '');
+      quoteEl.textContent = it.quote;
+      nameEl.textContent = c.name;
+      roleEl.textContent = c.role;
       dotsWrap.querySelectorAll('.t-dot').forEach(function (d, i) {
         d.classList.toggle('active', i === idx);
       });
     }
-    function go(i) { idx = (i + quotes.length) % quotes.length; render(); restart(); }
-    function restart() { clearInterval(timer); timer = setInterval(function () { go(idx + 1); }, 6500); }
+    function go(i) { idx = (i + items.length) % items.length; render(); restart(); }
+    function restart() { clearInterval(timer); timer = setInterval(function () { go(idx + 1); }, 7000); }
 
     slider.querySelector('.t-prev').addEventListener('click', function () { go(idx - 1); });
     slider.querySelector('.t-next').addEventListener('click', function () { go(idx + 1); });
-    if (quotes.length) { render(); restart(); }
+    if (items.length) { render(); restart(); }
+  }
+
+  /* ---- assets roster filter (topic + name search) ---- */
+  var roster = document.getElementById('roster');
+  var topicSel = document.getElementById('topic-filter');
+  var search = document.getElementById('asset-search');
+  if (roster && (topicSel || search)) {
+    var figs = [].slice.call(roster.querySelectorAll('figure'));
+    var empty = document.getElementById('roster-empty');
+    function applyFilter() {
+      var topic = topicSel ? topicSel.value : 'all';
+      var q = (search ? search.value : '').trim().toLowerCase();
+      var shown = 0;
+      figs.forEach(function (fig) {
+        var topics = fig.getAttribute('data-topics') || '';
+        var name = fig.getAttribute('data-name') || '';
+        var matchTopic = topic === 'all' || topics === 'all' || topics.split(' ').indexOf(topic) !== -1;
+        var matchName = !q || name.indexOf(q) !== -1;
+        var show = matchTopic && matchName;
+        fig.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+    }
+    if (topicSel) topicSel.addEventListener('change', applyFilter);
+    if (search) search.addEventListener('input', applyFilter);
   }
 
   /* ---- header: solidify on scroll for dark headers over hero ---- */

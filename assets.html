@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Assets — Meet our experts | Precision Components</title>
   <meta name="description" content="Meet our experts driving your impact — a select roster of seasoned professionals delivering keynotes, training, and consulting." />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -29,32 +30,30 @@
 
       <div class="filter-bar">
         <label>Topics:
-          <select>
-            <option>All</option>
-            <option>Health and Wellness Education</option>
-            <option>Leadership and Team Building</option>
-            <option>Mental Health and Emotional Intelligence</option>
-            <option>Mindset and Resiliency</option>
-            <option>Performance Optimization</option>
-            <option>Personal Development</option>
+          <select id="topic-filter">
+            <option value="all">All</option>
+            <option value="health-wellness">Health and Wellness Education</option>
+            <option value="leadership-team">Leadership and Team Building</option>
+            <option value="mental-health">Mental Health and Emotional Intelligence</option>
+            <option value="mindset-resiliency">Mindset and Resiliency</option>
+            <option value="performance">Performance Optimization</option>
+            <option value="personal-development">Personal Development</option>
           </select>
         </label>
-        <label>Tags:
-          <select><option>All</option></select>
-        </label>
-        <input type="search" placeholder="Search" aria-label="Search assets" />
+        <input id="asset-search" type="search" placeholder="Search by name" aria-label="Search assets" />
       </div>
 
-      <div class="roster">
-        <figure><img src="images/precision-components-asset-nick-lavery.jpg" alt="Nick Lavery" /><figcaption>Nick Lavery</figcaption></figure>
-        <figure><img src="images/precision-components-asset-rebecca-rouse.jpg" alt="Rebecca Rouse" /><figcaption>Rebecca Rouse</figcaption></figure>
-        <figure><img src="images/precision-components-asset-jennifer-wheeler.jpg" alt="Jennifer Wheeler" /><figcaption>Jennifer Wheeler</figcaption></figure>
-        <figure><img src="images/precision-components-asset-denny-giamazzo.jpg" alt="Denny Giamazzo" /><figcaption>Denny Giamazzo</figcaption></figure>
-        <figure><img src="images/precision-components-asset-pj-langmaid.jpg" alt="PJ Langmaid" /><figcaption>PJ Langmaid</figcaption></figure>
-        <figure><img src="images/precision-components-asset-george-hayworth.jpg" alt="George Hayworth" /><figcaption>George Hayworth</figcaption></figure>
-        <figure><img src="images/precision-components-asset-ben-monette.jpg" alt="Ben Monnette" /><figcaption>Ben Monnette</figcaption></figure>
-        <figure><img src="images/precision-components-asset-nick-ricciotti.jpg" alt="Nick Ricciotti" /><figcaption>Nick Ricciotti</figcaption></figure>
+      <div class="roster" id="roster">
+        <figure data-name="nick lavery" data-topics="all"><img src="images/precision-components-asset-nick-lavery.jpg" alt="Nick Lavery" /><figcaption>Nick Lavery</figcaption></figure>
+        <figure data-name="rebecca rouse" data-topics="health-wellness leadership-team performance"><img src="images/precision-components-asset-rebecca-rouse.jpg" alt="Rebecca Rouse" /><figcaption>Rebecca Rouse</figcaption></figure>
+        <figure data-name="jennifer wheeler" data-topics="mental-health mindset-resiliency performance"><img src="images/precision-components-asset-jennifer-wheeler.jpg" alt="Jennifer Wheeler" /><figcaption>Jennifer Wheeler</figcaption></figure>
+        <figure data-name="denny giamazzo" data-topics="leadership-team mindset-resiliency"><img src="images/precision-components-asset-denny-giamazzo.jpg" alt="Denny Giamazzo" /><figcaption>Denny Giamazzo</figcaption></figure>
+        <figure data-name="pj langmaid" data-topics="leadership-team"><img src="images/precision-components-asset-pj-langmaid.jpg" alt="PJ Langmaid" /><figcaption>PJ Langmaid</figcaption></figure>
+        <figure data-name="george hayworth" data-topics="leadership-team mental-health personal-development"><img src="images/precision-components-asset-george-hayworth.jpg" alt="George Hayworth" /><figcaption>George Hayworth</figcaption></figure>
+        <figure data-name="ben monnette" data-topics="leadership-team"><img src="images/precision-components-asset-ben-monette.jpg" alt="Ben Monnette" /><figcaption>Ben Monnette</figcaption></figure>
+        <figure data-name="nick ricciotti" data-topics="mental-health mindset-resiliency personal-development"><img src="images/precision-components-asset-nick-ricciotti.jpg" alt="Nick Ricciotti" /><figcaption>Nick Ricciotti</figcaption></figure>
       </div>
+      <p id="roster-empty" class="lead" hidden style="margin-top:24px;">No assets match your filter.</p>
     </div>
   </section>
 
