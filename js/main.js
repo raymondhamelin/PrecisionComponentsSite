@@ -38,6 +38,14 @@
     });
   });
 
+  /* ---- process horizontal stepper ---- */
+  document.querySelectorAll('.pstep-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.pstep').forEach(function (s) { s.classList.remove('active'); });
+      tab.closest('.pstep').classList.add('active');
+    });
+  });
+
   /* ---- about story tabs ---- */
   var storyTabs = document.querySelectorAll('.story-tab');
   if (storyTabs.length) {
@@ -53,48 +61,27 @@
     });
   }
 
-  /* ---- testimonials slider ---- */
-  var slider = document.querySelector('.t-slider');
+  /* ---- testimonials slider (cite on top, ‹ › nav) ---- */
+  var tLayout = document.querySelector('.t-layout');
   var dataEl = document.getElementById('testimonials-data');
-  if (slider && dataEl) {
+  if (tLayout && dataEl) {
     var items = [];
     try { items = JSON.parse(dataEl.textContent); } catch (e) { items = []; }
-    var quoteEl = slider.querySelector('.t-quote');
-    var nameEl = slider.querySelector('.t-name');
-    var roleEl = slider.querySelector('.t-role');
-    var dotsWrap = slider.querySelector('.t-dots');
+    var citeEl = tLayout.querySelector('.t-cite');
+    var quoteEl = tLayout.querySelector('.t-quote');
     var idx = 0, timer = null;
-
-    // "DORI KOREN Deputy Chief | LVMPD" -> name (leading caps) + role (rest)
-    function splitCite(cite) {
-      var m = cite.match(/^([A-Z][A-Z.\s()]+?)\s+([A-Z][a-z].*)$/);
-      if (m) return { name: m[1].trim(), role: m[2].trim() };
-      return { name: cite, role: '' };
-    }
-
-    items.forEach(function (_, i) {
-      var d = document.createElement('button');
-      d.className = 't-dot' + (i === 0 ? ' active' : '');
-      d.setAttribute('aria-label', 'Testimonial ' + (i + 1));
-      d.addEventListener('click', function () { go(i); });
-      dotsWrap.appendChild(d);
-    });
 
     function render() {
       var it = items[idx];
-      var c = splitCite(it.cite || '');
-      quoteEl.textContent = it.quote;
-      nameEl.textContent = c.name;
-      roleEl.textContent = c.role;
-      dotsWrap.querySelectorAll('.t-dot').forEach(function (d, i) {
-        d.classList.toggle('active', i === idx);
-      });
+      citeEl.textContent = it.cite || '';
+      quoteEl.textContent = '“' + it.quote + '”';
     }
     function go(i) { idx = (i + items.length) % items.length; render(); restart(); }
     function restart() { clearInterval(timer); timer = setInterval(function () { go(idx + 1); }, 7000); }
 
-    slider.querySelector('.t-prev').addEventListener('click', function () { go(idx - 1); });
-    slider.querySelector('.t-next').addEventListener('click', function () { go(idx + 1); });
+    var prev = tLayout.querySelector('.t-prev'), next = tLayout.querySelector('.t-next');
+    if (prev) prev.addEventListener('click', function () { go(idx - 1); });
+    if (next) next.addEventListener('click', function () { go(idx + 1); });
     if (items.length) { render(); restart(); }
   }
 
