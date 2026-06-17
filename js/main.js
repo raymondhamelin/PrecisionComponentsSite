@@ -46,6 +46,29 @@
     });
   });
 
+  /* ---- asset detail: Areas of Focus accordion ---- */
+  document.querySelectorAll('.focus-head').forEach(function (head) {
+    head.addEventListener('click', function () {
+      head.closest('.focus-item').classList.toggle('open');
+    });
+  });
+
+  /* ---- asset detail: per-page testimonials carousel ---- */
+  document.querySelectorAll('.asset-testi').forEach(function (box) {
+    var dataEl = box.querySelector('.at-data');
+    if (!dataEl) return;
+    var items = [];
+    try { items = JSON.parse(dataEl.textContent); } catch (e) { items = []; }
+    if (!items.length) return;
+    var citeEl = box.querySelector('.at-cite'), quoteEl = box.querySelector('.at-quote');
+    var i = 0;
+    function render() { citeEl.textContent = items[i].cite; quoteEl.textContent = '“' + items[i].quote + '”'; }
+    function go(d) { i = (i + d + items.length) % items.length; render(); }
+    box.querySelector('.at-prev').addEventListener('click', function () { go(-1); });
+    box.querySelector('.at-next').addEventListener('click', function () { go(1); });
+    render();
+  });
+
   /* ---- about story tabs ---- */
   var storyTabs = document.querySelectorAll('.story-tab');
   if (storyTabs.length) {
