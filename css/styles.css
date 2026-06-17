@@ -132,14 +132,27 @@ h1, h2, h3, h4 {
   overflow: hidden;
   isolation: isolate;
 }
-.hero::before {           /* moody diagonal sheen */
+/* background video (homepage) sits behind the tint */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+}
+.hero::before {           /* legibility tint + moody sheen over video/solid bg */
   content: "";
   position: absolute; inset: 0;
   background:
-    radial-gradient(120% 90% at 75% 15%, rgba(255,255,255,0.10), transparent 55%),
-    linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.045) 47%, transparent 64%),
-    linear-gradient(180deg, var(--ink), var(--espresso) 70%);
+    radial-gradient(120% 90% at 75% 15%, rgba(255,255,255,0.06), transparent 55%),
+    linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.04) 47%, transparent 64%),
+    linear-gradient(180deg, rgba(33,32,31,0.55), rgba(54,48,38,0.55) 70%);
   z-index: -1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__video { display: none; }
 }
 .hero__inner { max-width: var(--maxw); margin: 0 auto; }
 .hero h1 {
