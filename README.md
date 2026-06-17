@@ -7,17 +7,17 @@ A clean, static rebuild of the Precision Components LLC website, hand-written in
 | File | Page |
 |------|------|
 | `index.html` | Home — hero, services, process, clients, testimonials |
-| `about.html` | About — story / philosophy / expertise |
-| `cv.html` | Our story / philosophy / expertise (long form) |
-| `assets.html` | Expert roster |
-| `clients.html` | Client list by category |
+| `about.html` | About — story / philosophy / expertise, team, cross-fade backgrounds |
+| `cv.html` | Our Clients — categorized client list |
+| `assets.html` | Expert roster (filterable) |
+| `<slug>.html` | Individual expert detail pages (nick-lavery, rebecca-rouse, …) |
 | `contact.html` | Booking & partnership inquiries |
 
 ## Structure
 
 ```
 .
-├── index.html, about.html, cv.html, assets.html, clients.html, contact.html
+├── index.html, about.html, cv.html, assets.html, contact.html + expert detail pages
 ├── css/styles.css     # design system + all page styles
 ├── js/main.js         # nav, tabs, accordion, testimonials slider
 └── images/            # logos, portraits, client marks
