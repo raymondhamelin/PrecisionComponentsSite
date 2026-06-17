@@ -53,12 +53,49 @@
       tab.addEventListener('click', function () {
         var target = tab.getAttribute('data-pane');
         document.querySelectorAll('.story-tab').forEach(function (t) { t.classList.remove('active'); });
-        document.querySelectorAll('.story-body .pane').forEach(function (p) { p.classList.remove('active'); });
+        document.querySelectorAll('.pane').forEach(function (p) { p.classList.remove('active'); });
         tab.classList.add('active');
         var pane = document.getElementById('pane-' + target);
         if (pane) pane.classList.add('active');
       });
     });
+  }
+
+  /* ---- about page: scroll-driven cross-fade background + reveal ---- */
+  var aboutBg = document.querySelector('.about-bg');
+  if (aboutBg) {
+    var layers = [].slice.call(aboutBg.querySelectorAll('.about-bg__layer'));
+    var secs = [].slice.call(document.querySelectorAll('.about-sec'));
+    var current = -1;
+    function pickBg() {
+      var mid = window.innerHeight / 2, best = current < 0 ? 0 : current, bestDist = Infinity;
+      secs.forEach(function (s, i) {
+        var r = s.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
+        var d = Math.abs((r.top + r.height / 2) - mid);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      if (best !== current) {
+        current = best;
+        layers.forEach(function (l, i) { l.classList.toggle('is-active', i === best); });
+      }
+    }
+    var bgTicking = false;
+    window.addEventListener('scroll', function () {
+      if (!bgTicking) { requestAnimationFrame(function () { pickBg(); bgTicking = false; }); bgTicking = true; }
+    }, { passive: true });
+    window.addEventListener('resize', pickBg);
+    pickBg();
+
+    secs.forEach(function (s) { s.classList.add('reveal'); });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
+      }, { threshold: 0.12 });
+      secs.forEach(function (s) { io.observe(s); });
+    } else {
+      secs.forEach(function (s) { s.classList.add('in'); });
+    }
   }
 
   /* ---- testimonials slider (cite on top, ‹ › nav) ---- */

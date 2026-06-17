@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
+<body class="about-page">
   <header class="site-header">
     <nav class="site-nav">
       <a href="about.html" class="active">About</a>
@@ -21,83 +21,112 @@
     <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
   </header>
 
-  <section class="hero hero--short">
-    <div class="hero__inner">
-      <h1>Turning potential into achievement</h1>
-      <div class="hero__lead">Equipping people and organizations to adapt, grow, and thrive in any situation.</div>
-      <div class="hero__cta">
-        <a href="index.html#services" class="btn btn--cream">Services</a>
-        <a href="contact.html" class="btn btn--ghost-light">Inquire</a>
-      </div>
+  <!-- fixed background that cross-fades between sections on scroll -->
+  <div class="about-bg" aria-hidden="true">
+    <div class="about-bg__layer bgl-smoke is-active">
+      <video class="about-bg__video" autoplay muted loop playsinline preload="auto" poster="media/about-smoke-poster.jpg">
+        <source src="media/about-smoke.mp4" type="video/mp4" />
+      </video>
     </div>
-  </section>
+    <div class="about-bg__layer bgl-cream"></div>
+    <div class="about-bg__layer bgl-team"></div>
+    <div class="about-bg__layer bgl-achieve"></div>
+  </div>
 
-  <section class="section section--cream">
-    <div class="container">
-      <h2 class="section-title">Humans are more important than hardware</h2>
-      <div class="story">
-        <div class="story-tabs">
-          <button class="story-tab active" data-pane="story">Our Story</button>
-          <button class="story-tab" data-pane="philosophy">Our Philosophy</button>
-          <button class="story-tab" data-pane="expertise">Our Expertise</button>
-        </div>
-        <div class="story-photo">
-          <img src="images/precision-components-team.jpg" alt="The Precision Components team" />
-        </div>
-        <div class="story-body">
-          <div class="pane active" id="pane-story">
-            <p>Most people—and the organizations they power—operate at only a fraction of their true capacity. Precision Components was created to change that. What began as a solo mission to help others reach their full potential has grown into a global enterprise serving hundreds of clients worldwide.</p>
-            <p>Today, a team of elite speakers, instructors, and operational experts drives this mission forward. The journey has been humbling, surreal, and a testament to the belief that real impact starts with people.</p>
-          </div>
-          <div class="pane" id="pane-philosophy">
-            <p>While tools and technology are vital, they are only as effective as the people who wield them. True success lies in cultivating strong, adaptable individuals who drive collective excellence.</p>
-            <p>Guided by principles like leadership, resilience, integrity, and teamwork, our approach emphasizes building adaptable leaders, fostering accountability and collaboration, and strengthening teams through discipline and consistency. We believe the human element is irreplaceable, and this focus has shaped every aspect of our work.</p>
-          </div>
-          <div class="pane" id="pane-expertise">
-            <p>From professional sports to corporate leadership, military units, and beyond, our work has created measurable change in diverse sectors. Regardless of the field, one truth remains universal: investing in people drives results.</p>
-            <p>We've had the privilege of working with organizations like the Boston Celtics, Northwestern Mutual, Virginia Tech Corps of Cadets, the FBI, Milwaukee Tool, and the Detroit Lions—reflecting the power of fostering resilience, teamwork, and leadership at every level.</p>
-          </div>
+  <main class="about-main">
+
+    <!-- 0: HERO -->
+    <section class="about-sec about-sec--dark about-sec--center" data-bg="0">
+      <div class="about-inner">
+        <h1>Turning potential into achievement</h1>
+        <div class="about-box"><p>Equipping people and organizations to adapt, grow, and thrive in any situation.</p></div>
+        <div class="about-cta">
+          <a href="index.html#services" class="btn btn--cream">Services</a>
+          <a href="contact.html" class="btn btn--cream">Inquire</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section quote-band">
-    <div class="container">
-      <p>Being part of our team means delivering consistent value without exception. These seasoned professionals live the values they teach, ensuring they lead by example and provide tangible impact for every client.</p>
-    </div>
-  </section>
-
-  <section class="team-section">
-    <div class="container">
-      <h2 class="section-title">A team you can count on</h2>
-      <div class="team-grid">
-        <div class="team-member"><span>Nick Lavery</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>TJ Triscari</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Nick Merrick</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Jennifer Wheeler</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Eric Elam</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Sydney Ruefenacht</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Jamie Headley</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Marya Nguyen</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Kevin Aschman</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Rebecca Rouse</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Ryan Wheeler</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Joel Del Rosario</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Ray Vermiglio</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Justin Pop</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Chris Edington</span><span class="tm-plus">+</span></div>
-        <div class="team-member"><span>Jason Fry</span><span class="tm-plus">+</span></div>
+    <!-- 1: HUMANS -->
+    <section class="about-sec about-sec--light" data-bg="1">
+      <div class="about-inner">
+        <h2 class="section-title">Humans are more important than hardware</h2>
+        <div class="story">
+          <div class="story-tabs">
+            <button class="story-tab active" data-pane="story">Our Story</button>
+            <button class="story-tab" data-pane="philosophy">Our Philosophy</button>
+            <button class="story-tab" data-pane="expertise">Our Expertise</button>
+          </div>
+          <div class="story-panes">
+            <div class="pane active" id="pane-story">
+              <div class="pane-photo"><img src="images/team.jpg" alt="The Precision Components team" /></div>
+              <div class="pane-text">
+                <p>Most people—and the organizations they power—operate at only a fraction of their true capacity. Precision Components was created to change that. What began as a solo mission to help others reach their full potential has grown into a global enterprise serving hundreds of clients worldwide.</p>
+                <p>Today, a team of elite speakers, instructors, and operational experts drives this mission forward. The journey has been humbling, surreal, and a testament to the belief that real impact starts with people.</p>
+              </div>
+            </div>
+            <div class="pane" id="pane-philosophy">
+              <div class="pane-photo"><img src="images/precision-components.jpg" alt="Precision Components" /></div>
+              <div class="pane-text">
+                <p>While tools and technology are vital, they are only as effective as the people who wield them. True success lies in cultivating strong, adaptable individuals who drive collective excellence.</p>
+                <p>Guided by principles like leadership, resilience, integrity, and teamwork, our approach emphasizes building adaptable leaders, fostering accountability and collaboration, and strengthening teams through discipline and consistency. We believe the human element is irreplaceable, and this focus has shaped every aspect of our work.</p>
+              </div>
+            </div>
+            <div class="pane" id="pane-expertise">
+              <div class="pane-photo"><img src="images/nick-rowan-nj-10.jpg" alt="Precision Components" /></div>
+              <div class="pane-text">
+                <p>From professional sports to corporate leadership, military units, and beyond, our work has created measurable change in diverse sectors. Regardless of the field, one truth remains universal: investing in people drives results.</p>
+                <p>We've had the privilege of working with organizations like the Boston Celtics, Northwestern Mutual, Virginia Tech Corps of Cadets, the FBI, Milwaukee Tool, and the Detroit Lions—reflecting the power of fostering resilience, teamwork, and leadership at every level.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <h2 class="section-title">Achieve more, together</h2>
-      <div class="achieve-box">If you want to go fast, go alone. If you want to go far, go together. Let&rsquo;s create lasting success&mdash; one win at a time.</div>
-      <div class="hero__cta">
-        <a href="index.html#services" class="btn btn--cream">Services</a>
-        <a href="contact.html" class="btn btn--ghost-light">Inquire</a>
+    <!-- 2: TEAM -->
+    <section class="about-sec about-sec--dark" data-bg="2">
+      <div class="about-inner">
+        <h2 class="section-title">A team you can count on</h2>
+        <div class="about-box about-box--wide">
+          <p>Being part of our team means delivering consistent value—without exception. These seasoned professionals live the values they teach, ensuring they lead by example and provide tangible impact for every client.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-member"><span>Nick Lavery</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>TJ Triscari</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Nick Merrick</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Jennifer Wheeler</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Eric Elam</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Sydney Ruefenacht</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Jamie Headley</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Marya Nguyen</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Kevin Aschman</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Rebecca Rouse</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Ryan Wheeler</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Joel Del Rosario</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Ray Vermiglio</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Justin Pop</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Chris Edington</span><span class="tm-plus">+</span></div>
+          <div class="team-member"><span>Jason Fry</span><span class="tm-plus">+</span></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- 3: ACHIEVE -->
+    <section class="about-sec about-sec--dark about-sec--center" data-bg="3">
+      <div class="about-inner">
+        <h2 class="section-title">Achieve more, together</h2>
+        <div class="about-box">
+          <p>If you want to go fast, go alone.<br />If you want to go far, go together.<br />Let&rsquo;s create lasting success&mdash; one win at a time.</p>
+        </div>
+        <div class="about-cta">
+          <a href="index.html#services" class="btn btn--cream">Services</a>
+          <a href="contact.html" class="btn btn--cream">Inquire</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer class="site-footer">
     <div class="footer-grid">

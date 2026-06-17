@@ -316,25 +316,57 @@ h1, h2, h3, h4 {
 /* ============================================================
    ABOUT page
    ============================================================ */
-.story { display: grid; grid-template-columns: 200px 1fr 1.1fr; gap: clamp(24px,4vw,56px); align-items: start; margin-top: 40px; }
-.story-tabs { display: flex; flex-direction: column; gap: 6px; }
-.story-tab { text-align: left; background: none; border: 0; cursor: pointer; font-family: var(--font-body); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 6px 0; color: var(--espresso); opacity: .5; }
-.story-tab.active { opacity: 1; border-bottom: 1px solid var(--espresso); align-self: flex-start; }
-.story-photo img { width: 100%; filter: grayscale(1) contrast(1.05); }
-.story-body .pane { display: none; }
-.story-body .pane.active { display: block; }
-.quote-band { background: #8a8076; color: var(--cream); }
-.quote-band p { font-size: clamp(15px,2vw,19px); max-width: 80ch; margin: 0 auto; text-align: center; }
+/* fixed background that cross-fades between sections on scroll */
+.about-page { background: var(--ink); }
+.about-bg { position: fixed; inset: 0; z-index: -2; overflow: hidden; background: var(--ink); }
+.about-bg__layer { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; background-size: cover; background-position: center; will-change: opacity; }
+.about-bg__layer.is-active { opacity: 1; }
+.about-bg__video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bgl-cream { background-image: url("../images/pc-white-texture.jpg"); }
+.bgl-team { background-image: linear-gradient(rgba(15,14,12,.55), rgba(15,14,12,.55)), url("../images/_dsc9130-(2).jpg"); }
+.bgl-achieve { background-image: linear-gradient(90deg, rgba(15,14,12,.66), rgba(15,14,12,.22) 72%), url("../images/nick-(1).jpg"); }
+@media (prefers-reduced-motion: reduce) { .about-bg__layer { transition: none; } .about-bg__video { display: none; } }
 
-/* team + achieve (about) — names grid over a dark photo */
-.team-section { position: relative; color: var(--cream); background: var(--ink); padding: clamp(52px, 7vw, 88px) var(--pad); overflow: hidden; }
-.team-section::before { content: ""; position: absolute; inset: 0; background: url("../images/_dsc9130-(2).jpg") center/cover no-repeat; opacity: .30; z-index: 0; }
-.team-section > .container { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; }
-.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 40px; margin: 30px 0 54px; }
-.team-member { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 2px; border-top: 1px solid var(--line-light); font-family: var(--font-display); text-transform: uppercase; font-size: 21px; letter-spacing: .02em; }
-.team-member .tm-plus { font-family: var(--font-body); font-size: 17px; opacity: .55; }
-.achieve-box { border: 1px solid var(--line-light); padding: 18px 22px; max-width: 540px; font-size: 14px; line-height: 1.55; margin: 22px 0 26px; }
-@media (max-width: 820px) { .team-grid { grid-template-columns: repeat(2, 1fr); column-gap: 26px; } }
+.about-main { position: relative; z-index: 1; }
+.about-sec { position: relative; min-height: 100vh; display: flex; align-items: flex-start; padding: 132px var(--pad) 72px; }
+.about-sec--center { align-items: center; padding-top: 110px; padding-bottom: 110px; }
+.about-sec--dark { color: var(--cream); }
+.about-sec--light { color: var(--espresso); }
+.about-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; }
+.about-sec h1 { font-size: clamp(32px, 6vw, 49px); margin-bottom: 32px; }
+.about-sec .section-title { margin-bottom: 30px; }
+
+.about-box { border: 1px solid var(--line-light); border-radius: 8px; background: rgba(20,18,16,0.22); padding: 22px 28px; max-width: 760px; margin-bottom: 30px; }
+.about-box p { margin: 0; font-size: 15px; line-height: 1.5; }
+.about-box--wide { max-width: 940px; }
+.about-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* reveal on enter (fail-safe: only animates once JS adds .reveal) */
+.about-sec.reveal .about-inner { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.about-sec.reveal.in .about-inner { opacity: 1; transform: none; }
+
+/* humans — story tabs + per-tab photo/text */
+.story { display: grid; grid-template-columns: 200px 1fr; gap: clamp(24px,4vw,56px); align-items: start; }
+.story-tabs { display: flex; flex-direction: column; gap: 12px; }
+.story-tab { text-align: left; background: none; border: 0; cursor: pointer; font-family: var(--font-display); text-transform: uppercase; font-size: 20px; letter-spacing: .02em; padding: 1px 0; color: var(--espresso); opacity: .45; }
+.story-tab.active { opacity: 1; border-bottom: 2px solid var(--espresso); align-self: flex-start; }
+.story-panes .pane { display: none; grid-template-columns: 300px 1fr; gap: clamp(24px,4vw,52px); align-items: start; }
+.story-panes .pane.active { display: grid; }
+.pane-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: grayscale(1) contrast(1.04); border-radius: 2px; }
+.pane-text p { margin: 0 0 16px; max-width: 60ch; }
+
+/* team names grid (over dark photo) */
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 44px; margin-top: 30px; }
+.team-member { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 15px 2px; border-top: 1px solid var(--line-light); font-family: var(--font-display); text-transform: uppercase; font-size: 21px; letter-spacing: .02em; }
+.team-member .tm-plus { font-family: var(--font-body); font-size: 18px; opacity: .55; }
+
+@media (max-width: 860px) {
+  .story { grid-template-columns: 1fr; }
+  .story-tabs { flex-direction: row; flex-wrap: wrap; gap: 18px; }
+  .story-panes .pane.active { grid-template-columns: 1fr; }
+  .pane-photo img { max-width: 320px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); column-gap: 26px; }
+}
 @media (max-width: 460px) { .team-grid { grid-template-columns: 1fr; } }
 
 /* ============================================================
