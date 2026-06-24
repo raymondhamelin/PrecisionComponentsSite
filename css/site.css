@@ -90,9 +90,13 @@ em { font-style: italic; }
 .section--deep .btn--outline:hover { background: var(--olive); border-color: var(--olive); color: var(--cream); }
 /* hero CTAs on the dark video: light by default, green on hover */
 .hero .btn { border-color: var(--cream); color: var(--cream); box-shadow: 5px 6px 0 rgba(0,0,0,.45); }
-.hero .btn--solid { background: var(--cream); color: var(--espresso); }
+.hero .btn--solid { background: var(--olive); border-color: var(--olive); color: var(--cream); }
 .hero .btn--outline { background: transparent; color: var(--cream); }
 .hero .btn:hover { background: var(--olive); border-color: var(--olive); color: var(--cream); }
+/* main CTA: green by default, white on hover */
+.hero .btn--solid:hover { background: var(--cream); border-color: var(--olive); color: var(--olive); }
+/* secondary CTA: light outline, white fill on hover */
+.hero .btn--outline:hover { background: var(--cream); border-color: var(--cream); color: var(--olive); }
 .section--deep .btn--link { border-color: var(--cream); box-shadow: none; }
 
 /* =================== homepage hero logo (centered, fades in once) =================== */
@@ -106,9 +110,14 @@ em { font-style: italic; }
 /* small descriptive tagline under the logo; CTAs are the focal point */
 .hero h1.hero__tagline { font-family: var(--sans); font-weight: 400; text-transform: none; font-size: clamp(13px, 1.35vw, 16px); line-height: 1.65; letter-spacing: .01em; max-width: 620px; margin: 0 auto clamp(30px, 4.5vh, 46px); color: rgba(249, 245, 244, .82); }
 .hero--centered .hero__cta .btn { padding: 16px 42px; font-size: 15px; }
-#approach { scroll-margin-top: 92px; }
+#approach { scroll-margin-top: 92px; min-height: 100vh; display: flex; align-items: center; padding: clamp(104px, 14vh, 156px) 0 clamp(60px, 9vh, 104px); }
+#approach .container { width: 100%; }
 @keyframes heroLogoIn { from { opacity: 0; } to { opacity: 1; } }
-@media (prefers-reduced-motion: reduce) { .hero__logo { animation: none; opacity: 1; } }
+/* subtext + CTAs rise in after the logo finishes fading (logo done at ~1.55s) */
+.hero--centered .hero__tagline { animation: heroRise .7s ease 1.55s both; }
+.hero--centered .hero__cta { animation: heroRise .7s ease 1.85s both; }
+@keyframes heroRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .hero__logo, .hero--centered .hero__tagline, .hero--centered .hero__cta { animation: none; opacity: 1; transform: none; } }
 
 /* =================== header (cream, centered logo) =================== */
 .site-header { position: sticky; top: 0; z-index: 60; background: rgba(250, 246, 245, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); transition: transform .45s ease, opacity .45s ease; }
@@ -208,6 +217,36 @@ em { font-style: italic; }
 .cta-card p { margin-bottom: 20px; }
 .cta-card .by { margin: 0 0 20px; }
 @media (max-width: 760px) { .paths, .cards-2, .dual-cta { grid-template-columns: 1fr; } }
+/* brief What/Who/How trio */
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: clamp(40px, 5vh, 64px); }
+.trio-card { display: flex; flex-direction: column; justify-content: center; gap: 20px; min-height: clamp(340px, 44vh, 520px); border: 1px solid var(--line-strong); border-radius: 10px; padding: clamp(32px, 3.4vw, 52px); background: rgba(54, 48, 38, .02); transition: border-color .2s; }
+.trio-card:hover { border-color: var(--olive); }
+.trio-card .eyebrow { margin: 0; font-size: 13px; }
+.trio-card h3 { font-size: clamp(28px, 3vw, 40px); line-height: .98; margin: 0 0 18px; }
+.trio-card .lead { font-size: clamp(16px, 1.25vw, 19px); line-height: 1.6; color: var(--espresso); margin: 0; }
+@media (max-width: 860px) { .trio { grid-template-columns: 1fr; } .trio-card { min-height: 0; gap: 22px; } }
+/* "not sure?" CTA under the trio */
+.trio-cta { text-align: center; margin-top: clamp(36px, 5vh, 60px); }
+.trio-cta p { font-family: var(--mono); font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+
+/* find-your-path assessment — full-viewport stage */
+.quiz-stage { min-height: calc(100vh - 76px); display: flex; align-items: center; padding: clamp(40px, 6vh, 72px) 0; }
+.quiz-stage .container { width: 100%; }
+.quiz-panel { max-width: 740px; margin: 0 auto; }
+.quiz-title { font-size: clamp(34px, 6vw, 68px); line-height: .93; margin: 14px 0 22px; }
+.quiz-sub { font-size: clamp(15px, 1.5vw, 18px); line-height: 1.55; color: var(--muted); max-width: 600px; margin: 0 0 34px; }
+.quiz-wrap { max-width: 720px; margin: 0 auto; }
+.quiz__progress { font-family: var(--mono); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--olive); margin: 0 0 18px; }
+.quiz__q { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 4.6vw, 50px); line-height: 1; margin: 0 0 34px; color: var(--espresso); }
+.quiz__options { display: grid; gap: 14px; }
+.quiz__opt { display: block; width: 100%; text-align: left; font-family: var(--mono); font-size: 16px; line-height: 1.5; color: var(--espresso); background: rgba(54, 48, 38, .02); border: 1px solid var(--line-strong); border-radius: 12px; padding: 22px 26px; cursor: pointer; transition: border-color .18s, background .18s, transform .12s; }
+.quiz__opt:hover { border-color: var(--olive); background: rgba(88, 135, 73, .07); }
+.quiz__opt:active { transform: translateY(1px); }
+.result-card h2 { font-size: clamp(32px, 5vw, 52px); line-height: .96; margin: 0 0 18px; }
+.result-card p { font-size: 17px; line-height: 1.62; color: var(--muted); max-width: 620px; margin: 0 0 28px; }
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.result-note { font-family: var(--mono); font-size: 13px; line-height: 1.6; color: var(--muted); margin: 30px 0 18px; }
+.result-note a { color: var(--olive); border-bottom: 1px solid var(--olive); }
 
 /* =================== pull quote =================== */
 .pullquote { border-left: 2px solid var(--olive); padding-left: clamp(20px,3vw,34px); max-width: 880px; margin-top: 10px; }

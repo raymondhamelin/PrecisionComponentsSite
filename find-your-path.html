@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Your Path | Precision Components</title>
+  <meta name="description" content="Not sure whether your organization needs experiential services or strategic advisory? Answer three quick questions to find your starting point with Precision Components." />
+  <link rel="canonical" href="https://www.precisioncomponentsllc.com/find-your-path" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__in">
+      <a class="brand" href="index.html"><img src="images/pc-logo-black.png" alt="Precision Components" /></a>
+      <nav class="site-nav" id="nav">
+        <a href="how-we-work.html">How We Work</a>
+        <a href="strategic-advisory-services.html">Strategic Advisory</a>
+        <a href="experiential-services.html">Experiential</a>
+        <a href="about.html">About</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn--solid">Start a conversation</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="quiz-stage">
+      <div class="container">
+        <div id="quizIntro" class="quiz-panel">
+          <p class="eyebrow">Find your path</p>
+          <h1 class="quiz-title">Not sure what your organization needs?</h1>
+          <p class="quiz-sub">Two connected paths, three quick questions — pointed at the right place to start. Many organizations begin with one and grow into the other.</p>
+          <button class="btn btn--solid" id="quizStart" type="button">Begin the assessment →</button>
+        </div>
+
+        <div id="quiz" class="quiz-panel" hidden aria-live="polite"><!-- questions rendered by JS --></div>
+
+        <div id="quizResult" class="quiz-panel" hidden>
+          <p class="eyebrow">Your recommended starting point</p>
+
+          <div data-result="exp" class="result-card" hidden>
+            <h2>Start with Experiential Services.</h2>
+            <p>High-impact experiences that surface performance gaps, create alignment, and generate the shared language change needs to take hold. These aren't events — they're catalysts, and they often open the door to deeper work.</p>
+            <div class="btn-row">
+              <a href="experiential-services.html" class="btn btn--solid">Explore Experiential Services →</a>
+              <a href="contact.html" class="btn btn--outline">Book a call</a>
+            </div>
+          </div>
+
+          <div data-result="adv" class="result-card" hidden>
+            <h2>Start with Strategic Advisory Services.</h2>
+            <p>Embedded advisory and implementation focused on how your organization operates day to day — how decisions get made, how priorities are communicated, and where execution breaks down between intent and outcome.</p>
+            <div class="btn-row">
+              <a href="strategic-advisory-services.html" class="btn btn--solid">Explore Strategic Advisory →</a>
+              <a href="contact.html" class="btn btn--outline">Book a call</a>
+            </div>
+          </div>
+
+          <p class="result-note">Both paths connect — many organizations move between them over time. Still unsure? <a href="contact.html">Start a conversation.</a></p>
+          <button class="btn btn--link" id="quizRetake" type="button">↺ Retake the assessment</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand"><img src="images/pc-logo-white.png" alt="Precision Components" /></div>
+          <p>Leadership &amp; performance advisory. We work inside the gap between strategy and execution.</p>
+        </div>
+        <div class="footer-col"><h4>The firm</h4><ul><li><a href="how-we-work.html">How We Work</a></li><li><a href="strategic-advisory-services.html">Strategic Advisory</a></li><li><a href="experiential-services.html">Experiential Services</a></li><li><a href="about.html">About</a></li><li><a href="insights.html">Insights</a></li></ul></div>
+        <div class="footer-col"><h4>Connect</h4><ul><li><a href="contact.html">Start a conversation</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Instagram</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Precision Components, LLC</span><span>Organizational Performance Consulting</span></div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>
+  (function () {
+    var QUESTIONS = [
+      { q: "What does your organization need most right now?",
+        a: [ { t: "To surface what's really going on and get people aligned.", v: "exp" },
+             { t: "To fix where execution keeps breaking down.", v: "adv" } ] },
+      { q: "Which sounds more like where you are?",
+        a: [ { t: "We need momentum and a shared starting point.", v: "exp" },
+             { t: "We need lasting change in how we operate day to day.", v: "adv" } ] },
+      { q: "What kind of engagement fits best?",
+        a: [ { t: "A high-impact experience that creates a catalyst.", v: "exp" },
+             { t: "Embedded, ongoing advisory and implementation.", v: "adv" } ] }
+    ];
+    var quiz = document.getElementById('quiz');
+    var result = document.getElementById('quizResult');
+    var intro = document.getElementById('quizIntro');
+    if (!quiz || !result) return;
+    var answers = [], step = 0;
+
+    function render() {
+      var item = QUESTIONS[step];
+      var opts = item.a.map(function (a) {
+        return '<button class="quiz__opt" type="button" data-v="' + a.v + '">' + a.t + '</button>';
+      }).join('');
+      quiz.innerHTML =
+        '<p class="quiz__progress">Question ' + (step + 1) + ' of ' + QUESTIONS.length + '</p>' +
+        '<h2 class="quiz__q">' + item.q + '</h2>' +
+        '<div class="quiz__options">' + opts + '</div>';
+      quiz.querySelectorAll('.quiz__opt').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          answers[step] = btn.getAttribute('data-v');
+          step++;
+          if (step < QUESTIONS.length) render(); else finish();
+        });
+      });
+    }
+
+    function finish() {
+      var exp = answers.filter(function (v) { return v === 'exp'; }).length;
+      var pick = exp >= (answers.length - exp) ? 'exp' : 'adv';
+      quiz.hidden = true;
+      result.hidden = false;
+      result.querySelectorAll('[data-result]').forEach(function (r) {
+        r.hidden = r.getAttribute('data-result') !== pick;
+      });
+    }
+
+    function begin() {
+      if (intro) intro.hidden = true;
+      result.hidden = true; quiz.hidden = false;
+      answers = []; step = 0; render();
+    }
+
+    var startBtn = document.getElementById('quizStart');
+    if (startBtn) startBtn.addEventListener('click', begin);
+    document.getElementById('quizRetake').addEventListener('click', begin);
+  })();
+  </script>
+</body>
+</html>
