@@ -3,163 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Precision Components</title>
-  <meta name="description" content="Humans are more important than hardware. Precision Components equips people and organizations to adapt, grow, and thrive in any situation." />
+  <title>About | Nick Lavery &amp; Precision Components</title>
+  <meta name="description" content="Nick Lavery is an active-duty Special Forces Chief Warrant Officer and the first above-the-knee amputee to return to Special Forces combat. He founded Precision Components." />
+  <link rel="canonical" href="https://www.precisioncomponentsllc.com/about" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "Person", "name": "Nick Lavery", "jobTitle": "Founder · Special Forces Chief Warrant Officer", "worksFor": { "@type": "Organization", "name": "Precision Components" }, "description": "Nick Lavery is an active-duty Special Forces Chief Warrant Officer and the first above-the-knee amputee in military history to return to combat on a Special Forces team. He is the bestselling author of Objective Secure and the founder of Precision Components." }
+  </script>
 </head>
-<body class="about-page">
+<body>
   <header class="site-header">
-    <nav class="site-nav">
-      <a href="about.html" class="active">About</a>
-      <a href="index.html#services">Services</a>
-      <a href="cv.html">CV</a>
-      <a href="assets.html">Assets</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <a class="brand" href="index.html"><img src="images/pc-logo-black.png" alt="Precision Components" /></a>
-    <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+    <div class="container site-header__in">
+      <a class="brand" href="index.html"><img src="images/pc-logo-black.png" alt="Precision Components" /></a>
+      <nav class="site-nav" id="nav">
+        <a href="how-we-work.html">How We Work</a>
+        <a href="strategic-advisory-services.html">Strategic Advisory</a>
+        <a href="experiential-services.html">Experiential</a>
+        <a href="about.html" class="active">About</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn--solid">Start a conversation</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
+    </div>
   </header>
 
-  <!-- fixed background that cross-fades between sections on scroll -->
-  <div class="about-bg" aria-hidden="true">
-    <div class="about-bg__layer bgl-smoke is-active">
-      <video class="about-bg__video" autoplay muted loop playsinline preload="auto" poster="media/about-smoke-poster.jpg">
-        <source src="media/about-smoke.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <div class="about-bg__layer bgl-cream"></div>
-    <div class="about-bg__layer bgl-team"></div>
-    <div class="about-bg__layer bgl-achieve"></div>
-  </div>
+  <main>
+    <section class="page-hero grid-bg">
+      <div class="container">
+        <p class="eyebrow">About</p>
+        <h1>The work is grounded in something <span class="accent">most advisory firms can't claim.</span></h1>
+        <p class="page-hero__sub">Precision Components exists because of a specific kind of experience — one earned in environments where performance is non-negotiable, alignment is a survival requirement, and execution failures have real consequences. That foundation shapes everything about how the firm operates today.</p>
+      </div>
+    </section>
 
-  <main class="about-main">
-
-    <!-- 0: HERO -->
-    <section class="about-sec about-sec--dark about-sec--center" data-bg="0">
-      <div class="about-inner">
-        <h1>Turning potential into achievement</h1>
-        <div class="about-box"><p>Equipping people and organizations to adapt, grow, and thrive in any situation.</p></div>
-        <div class="about-cta">
-          <a href="index.html#services" class="btn btn--cream">Services</a>
-          <a href="contact.html" class="btn btn--cream">Inquire</a>
+    <section class="section section--deep">
+      <div class="container split">
+        <div class="split__media">
+          <img src="images/nick-(1).jpg" alt="Nick Lavery, founder of Precision Components, Special Forces Chief Warrant Officer" />
+          <span class="tag">Nick Lavery · Founder</span>
+        </div>
+        <div class="split__body">
+          <p class="eyebrow">01 — The foundation</p>
+          <h2>Nick Lavery.</h2>
+          <p class="prose" style="margin-top:20px;">Nick is an active-duty Special Forces Chief Warrant Officer — and the first above-the-knee amputee in military history to return to sustained combat operations on a Special Forces team. That distinction isn't a footnote. It's the clearest possible proof of what this work is actually built on: the capacity to perform at the highest level when the conditions are hardest.</p>
+          <p class="prose">Nick is also the bestselling author of <em>Objective Secure</em>, in which he maps the mental and operational frameworks that allowed him to return to the fight — and shows how those same frameworks apply inside any organization serious about performance.</p>
+          <p class="prose">He founded Precision Components with a specific belief: that the principles governing how elite teams align, make decisions, and execute under pressure aren't unique to military environments. They transfer. And when applied with discipline inside complex organizations, they change how those organizations perform.</p>
         </div>
       </div>
     </section>
 
-    <!-- 1: HUMANS -->
-    <section class="about-sec about-sec--light" data-bg="1">
-      <div class="about-inner">
-        <h2 class="section-title">Humans are more important than hardware</h2>
-        <div class="story">
-          <div class="story-tabs">
-            <button class="story-tab active" data-pane="story">Our Story</button>
-            <button class="story-tab" data-pane="philosophy">Our Philosophy</button>
-            <button class="story-tab" data-pane="expertise">Our Expertise</button>
-          </div>
-          <div class="story-panes">
-            <div class="pane active" id="pane-story">
-              <div class="pane-photo"><img src="images/team.jpg" alt="The Precision Components team" /></div>
-              <div class="pane-text">
-                <p>Most people—and the organizations they power—operate at only a fraction of their true capacity. Precision Components was created to change that. What began as a solo mission to help others reach their full potential has grown into a global enterprise serving hundreds of clients worldwide.</p>
-                <p>Today, a team of elite speakers, instructors, and operational experts drives this mission forward. The journey has been humbling, surreal, and a testament to the belief that real impact starts with people.</p>
-              </div>
-            </div>
-            <div class="pane" id="pane-philosophy">
-              <div class="pane-photo"><img src="images/precision-components.jpg" alt="Precision Components" /></div>
-              <div class="pane-text">
-                <p>While tools and technology are vital, they are only as effective as the people who wield them. True success lies in cultivating strong, adaptable individuals who drive collective excellence.</p>
-                <p>Guided by principles like leadership, resilience, integrity, and teamwork, our approach emphasizes building adaptable leaders, fostering accountability and collaboration, and strengthening teams through discipline and consistency. We believe the human element is irreplaceable, and this focus has shaped every aspect of our work.</p>
-              </div>
-            </div>
-            <div class="pane" id="pane-expertise">
-              <div class="pane-photo"><img src="images/nick-rowan-nj-10.jpg" alt="Precision Components" /></div>
-              <div class="pane-text">
-                <p>From professional sports to corporate leadership, military units, and beyond, our work has created measurable change in diverse sectors. Regardless of the field, one truth remains universal: investing in people drives results.</p>
-                <p>We've had the privilege of working with organizations like the Boston Celtics, Northwestern Mutual, Virginia Tech Corps of Cadets, the FBI, Milwaukee Tool, and the Detroit Lions—reflecting the power of fostering resilience, teamwork, and leadership at every level.</p>
-              </div>
-            </div>
-          </div>
+    <section class="section">
+      <div class="container">
+        <div class="meta-row"><span class="l">02 — The evolution</span><span class="r">From capability to firm</span></div>
+        <div class="section__head"><h2 class="section-title">What it's become.</h2></div>
+        <div class="prose" style="margin-top:32px;">
+          <p>Precision Components began as a single capability and has grown into something more substantial — a firm with the structure, the team, and the operating model to deliver this work at scale.</p>
+          <p>That evolution was intentional. The work PC does — embedded advisory, experiential engagements, implementation that holds — requires more than one person can sustain across multiple organizations simultaneously. <strong>It requires a team built around the work itself,</strong> with the depth to stay inside an engagement as it extends and the continuity to make improvement durable.</p>
+          <p>Today, Precision Components operates with an internal team that runs the firm and a field team of specialists deployed into engagements based on fit — ensuring the right people are in the room for the right work, every time.</p>
         </div>
       </div>
     </section>
 
-    <!-- 2: TEAM -->
-    <section class="about-sec about-sec--dark" data-bg="2">
-      <div class="about-inner">
-        <h2 class="section-title">A team you can count on</h2>
-        <div class="about-box about-box--wide">
-          <p>Being part of our team means delivering consistent value—without exception. These seasoned professionals live the values they teach, ensuring they lead by example and provide tangible impact for every client.</p>
+    <section class="section section--alt">
+      <div class="container">
+        <div class="meta-row"><span class="l">03 — The team</span><span class="r">The firm</span></div>
+        <div class="section__head"><h2 class="section-title">The team.</h2>
+          <p class="prose" style="margin-top:24px;">The people who run Precision Components are structured around one thing: making sure the work delivers at the level it's been designed to deliver.</p>
         </div>
         <div class="team-grid">
-          <div class="team-member"><span>Nick Lavery</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>TJ Triscari</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Nick Merrick</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Jennifer Wheeler</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Eric Elam</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Sydney Ruefenacht</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Jamie Headley</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Marya Nguyen</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Kevin Aschman</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Rebecca Rouse</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Ryan Wheeler</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Joel Del Rosario</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Ray Vermiglio</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Justin Pop</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Chris Edington</span><span class="tm-plus">+</span></div>
-          <div class="team-member"><span>Jason Fry</span><span class="tm-plus">+</span></div>
+          <div class="team-card"><div class="photo">PHOTO</div><h3>[ Team member 01 ]</h3><p class="role">Title</p><p>2–3 sentence bio focused on what they bring to the firm — grounded and specific. What do they actually do that makes the work better?</p></div>
+          <div class="team-card"><div class="photo">PHOTO</div><h3>[ Team member 02 ]</h3><p class="role">Title</p><p>2–3 sentence bio. Same format and length as Team Member 01.</p></div>
+          <div class="team-card"><div class="photo">PHOTO</div><h3>[ Team member 03 ]</h3><p class="role">Title</p><p>2–3 sentence bio. Same format.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- 3: ACHIEVE -->
-    <section class="about-sec about-sec--dark about-sec--center" data-bg="3">
-      <div class="about-inner">
-        <h2 class="section-title">Achieve more, together</h2>
-        <div class="about-box">
-          <p>If you want to go fast, go alone.<br />If you want to go far, go together.<br />Let&rsquo;s create lasting success&mdash; one win at a time.</p>
+    <section class="section section--deep">
+      <div class="container">
+        <div class="meta-row"><span class="l">04 — The field team</span><span class="r">Specialists deployed by fit</span></div>
+        <div class="section__head"><h2 class="section-title">The field team.</h2>
+          <p class="prose" style="margin-top:24px;">Not every engagement requires the same people. Precision Components draws from a curated network of specialists — practitioners with specific domain depth — deployed into engagements based on what the work actually calls for. The result is that the right people are always in the room, not just the available ones.</p>
         </div>
-        <div class="about-cta">
-          <a href="index.html#services" class="btn btn--cream">Services</a>
-          <a href="contact.html" class="btn btn--cream">Inquire</a>
+        <div class="team-grid field-grid">
+          <div class="team-card"><div class="photo"><img src="images/precision-components-asset-rebecca-rouse.jpg" alt="Rebecca Rouse, Precision Components field team" /></div><h3>Rebecca Rouse</h3><p class="role">Physical Performance &amp; Recovery</p><p>Functional training, tactical nutrition, and recovery for high-performing teams.</p></div>
+          <div class="team-card"><div class="photo"><img src="images/precision-components-asset-jennifer-wheeler.jpg" alt="Jennifer Wheeler, Precision Components field team" /></div><h3>Jennifer Wheeler</h3><p class="role">Resilience &amp; Functional Performance</p><p>Stress response, recovery, and mind-body resilience for frontline professionals.</p></div>
+          <div class="team-card"><div class="photo"><img src="images/precision-components-asset-denny-giamazzo.jpg" alt="Denny Giamazzo, Precision Components field team" /></div><h3>Denny Giamazzo</h3><p class="role">Leadership Development</p><p>Be-the-standard leadership and team performance at every level.</p></div>
+          <div class="team-card"><div class="photo"><img src="images/precision-components-asset-pj-langmaid.jpg" alt="PJ Langmaid, Precision Components field team" /></div><h3>PJ Langmaid</h3><p class="role">Leadership &amp; Org Development</p><p>A framework for developing and implementing leadership across the organization.</p></div>
+          <div class="team-card"><div class="photo"><img src="images/precision-components-asset-george-hayworth.jpg" alt="George Hayworth, Precision Components field team" /></div><h3>George Hayworth</h3><p class="role">Leadership &amp; Culture</p><p>Building leaders, mastering mindset, and forging unbreakable team culture.</p></div>
+          <div class="team-card"><div class="photo"><img src="images/precision-components-asset-ben-monette.jpg" alt="Ben Monnette, Precision Components field team" /></div><h3>Ben Monnette</h3><p class="role">Leadership &amp; Team Dynamics</p><p>Relationships, emotional intelligence, and team performance under pressure.</p></div>
+          <div class="team-card"><div class="photo"><img src="images/precision-components-asset-nick-ricciotti.jpg" alt="Nick Ricciotti, Precision Components field team" /></div><h3>Nick Ricciotti</h3><p class="role">Resilience &amp; Performance</p><p>Resilience, recovery, and life optimization for sustained performance.</p></div>
         </div>
       </div>
     </section>
 
+    <section class="section grid-bg">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Start here</p>
+          <h2 class="section-title">The background is real. The work is what it produces.</h2>
+          <p class="prose" style="margin-top:24px;">If your organization is dealing with the kind of execution gaps that haven't responded to the standard approaches — this is where that conversation begins.</p>
+        </div>
+        <div class="dual-cta">
+          <div class="cta-card"><p class="kicker">See the work</p><h3>Explore how Precision Components works and what it's built to address.</h3><a href="how-we-work.html" class="btn btn--solid">See how we work →</a></div>
+          <div class="cta-card"><p class="kicker">Start a conversation</p><h3>Ready to talk about what your organization is dealing with?</h3><a href="contact.html" class="btn btn--outline">Start the conversation →</a></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Follow</h4>
-        <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">LinkedIn</a></li>
-        </ul>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand"><img src="images/pc-logo-white.png" alt="Precision Components" /></div>
+          <p>Leadership &amp; performance advisory. We work inside the gap between strategy and execution.</p>
+        </div>
+        <div class="footer-col"><h4>The firm</h4><ul><li><a href="how-we-work.html">How We Work</a></li><li><a href="strategic-advisory-services.html">Strategic Advisory</a></li><li><a href="experiential-services.html">Experiential Services</a></li><li><a href="about.html">About</a></li><li><a href="insights.html">Insights</a></li></ul></div>
+        <div class="footer-col"><h4>Connect</h4><ul><li><a href="contact.html">Start a conversation</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Instagram</a></li></ul></div>
       </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="cv.html">CV</a></li>
-          <li><a href="assets.html">Assets</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Info</h4>
-        <ul>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
+      <div class="footer-bottom"><span>© 2026 Precision Components, LLC</span><span>Organizational Performance Consulting</span></div>
     </div>
-    <div class="footer-bottom">© 2026 Precision Components, LLC</div>
   </footer>
-
-  <script src="js/main.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>

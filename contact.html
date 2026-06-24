@@ -3,66 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Precision Components</title>
-  <meta name="description" content="Contact Precision Components for booking and partnership inquiries." />
+  <title>Contact Precision Components | Start a Conversation</title>
+  <meta name="description" content="No pitch. No qualification process. A direct conversation about what your organization is facing and whether there's a fit." />
+  <link rel="canonical" href="https://www.precisioncomponentsllc.com/contact" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
   <header class="site-header">
-    <nav class="site-nav">
-      <a href="about.html">About</a>
-      <a href="index.html#services">Services</a>
-      <a href="cv.html">CV</a>
-      <a href="assets.html">Assets</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-    <a class="brand" href="index.html"><img src="images/pc-logo-black.png" alt="Precision Components" /></a>
-    <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+    <div class="container site-header__in">
+      <a class="brand" href="index.html"><img src="images/pc-logo-black.png" alt="Precision Components" /></a>
+      <nav class="site-nav" id="nav">
+        <a href="how-we-work.html">How We Work</a>
+        <a href="strategic-advisory-services.html">Strategic Advisory</a>
+        <a href="experiential-services.html">Experiential</a>
+        <a href="about.html">About</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="contact.html" class="btn btn--solid">Start a conversation</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
+    </div>
   </header>
 
-  <section class="section section--top section--dark" style="min-height: 88vh; display:flex; align-items:center;">
-    <div class="container" style="width:100%;">
-      <div class="contact-links">
-        <p class="eyebrow">Contact Us</p>
-        <a class="contact-link" href="mailto:info@precisioncomponentsllc.com?subject=Booking%20Inquiry">Booking &#8594;</a>
-        <a class="contact-link" href="mailto:info@precisioncomponentsllc.com?subject=Partnership%20Inquiry">Partnerships &#8594;</a>
+  <main>
+    <section class="page-hero grid-bg">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1>Let's talk about what your organization <span class="accent">is dealing with.</span></h1>
+        <p class="page-hero__sub">No pitch. No qualification process. A direct conversation about where performance is breaking down and whether Precision Components is the right fit.</p>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <form id="contactForm">
+          <div class="contact-grid">
+            <div class="field"><label for="cf-name">Name *</label><input id="cf-name" name="name" type="text" required /></div>
+            <div class="field"><label for="cf-org">Organization *</label><input id="cf-org" name="organization" type="text" required /></div>
+            <div class="field"><label for="cf-email">Email *</label><input id="cf-email" name="email" type="email" required /></div>
+            <div class="field"><label for="cf-phone">Phone</label><input id="cf-phone" name="phone" type="tel" /></div>
+            <div class="field full"><label for="cf-msg">What are you looking to address?</label><textarea id="cf-msg" name="message"></textarea></div>
+            <div class="field full"><label for="cf-src">How did you hear about us?</label>
+              <select id="cf-src" name="source">
+                <option value="">Select one</option>
+                <option>Referral</option>
+                <option>Search</option>
+                <option>Social</option>
+                <option>Event or speaking engagement</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions"><button type="submit" class="btn btn--solid">Send →</button></div>
+          <p class="form-note">A direct conversation — not a sales call. We typically respond within one business day.</p>
+        </form>
+
+        <div class="confirm" id="contactConfirm">
+          <p class="eyebrow">Message received</p>
+          <h2>Got it.</h2>
+          <p class="prose" style="margin-top:18px;">Someone from the team will be in touch within one business day to set up a conversation.</p>
+          <p class="prose">In the meantime — if you haven't already, it's worth spending time on the How We Work page. It'll give you the clearest picture of what the engagement actually looks like before we talk.</p>
+          <div style="margin-top:28px;"><a href="how-we-work.html" class="btn btn--solid">See how we work →</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Follow</h4>
-        <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">LinkedIn</a></li>
-        </ul>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand"><img src="images/pc-logo-white.png" alt="Precision Components" /></div>
+          <p>Leadership &amp; performance advisory. We work inside the gap between strategy and execution.</p>
+        </div>
+        <div class="footer-col"><h4>The firm</h4><ul><li><a href="how-we-work.html">How We Work</a></li><li><a href="strategic-advisory-services.html">Strategic Advisory</a></li><li><a href="experiential-services.html">Experiential Services</a></li><li><a href="about.html">About</a></li><li><a href="insights.html">Insights</a></li></ul></div>
+        <div class="footer-col"><h4>Connect</h4><ul><li><a href="contact.html">Start a conversation</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Instagram</a></li></ul></div>
       </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="cv.html">CV</a></li>
-          <li><a href="assets.html">Assets</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Info</h4>
-        <ul>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
+      <div class="footer-bottom"><span>© 2026 Precision Components, LLC</span><span>Organizational Performance Consulting</span></div>
     </div>
-    <div class="footer-bottom">© 2026 Precision Components, LLC</div>
   </footer>
-
-  <script src="js/main.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>
