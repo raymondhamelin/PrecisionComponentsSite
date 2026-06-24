@@ -31,29 +31,23 @@
   if (ccStage) {
     var cards = [].slice.call(ccStage.querySelectorAll('.cc-card'));
     var n = cards.length;
+    var carousel = document.getElementById('carousel');
     var ccRole = document.getElementById('ccRole');
     var ccName = document.getElementById('ccName');
     var ccBio = document.getElementById('ccBio');
     var ccLink = document.getElementById('ccLink');
-    var active = 0;
+    var active = 0, curStep = 150;
+    var relPos = function (i) { var p = i - active; if (p > n / 2) p -= n; if (p < -n / 2) p += n; return p; };
+    var scaleFor = function (abs) { return Math.max(0.55, 1 - abs * 0.13); };
     var layout = function () {
-      var step = Math.max(96, Math.min(165, ccStage.offsetWidth * 0.17));
+      curStep = Math.max(96, Math.min(170, ccStage.offsetWidth * 0.17));
       cards.forEach(function (card, i) {
-        var pos = i - active;
-        if (pos > n / 2) pos -= n;
-        if (pos < -n / 2) pos += n;
-        var abs = Math.abs(pos);
-        var sign = pos < 0 ? -1 : 1;
-        var hidden = abs > 3;
-        var tx = pos * step;
-        var tz = -abs * 150;
-        var ry = abs === 0 ? 0 : -sign * 45;
-        var sc = Math.max(0.55, 1 - abs * 0.13);
-        var op = hidden ? 0 : (abs === 0 ? 1 : abs === 1 ? 0.9 : abs === 2 ? 0.5 : 0.18);
-        card.style.transform = 'translate(-50%, -50%) translateX(' + tx + 'px) translateZ(' + tz + 'px) rotateY(' + ry + 'deg) scale(' + sc + ')';
-        card.style.opacity = op;
+        var pos = relPos(i), abs = Math.abs(pos), sign = pos < 0 ? -1 : 1, hidden = abs > 3;
+        var ry = abs === 0 ? 0 : -sign * 45, sc = scaleFor(abs);
+        card.style.transform = 'translate(-50%, -50%) translateX(' + (pos * curStep) + 'px) translateZ(' + (-abs * 150) + 'px) rotateY(' + ry + 'deg) scale(' + sc + ')';
+        card.style.opacity = hidden ? 0 : (abs === 0 ? 1 : abs === 1 ? 0.9 : abs === 2 ? 0.5 : 0.18);
         card.style.zIndex = String(100 - abs);
-        card.style.pointerEvents = hidden ? 'none' : 'auto';
+        if (abs !== 0) card.classList.remove('is-hover');
         card.classList.toggle('is-active', pos === 0);
       });
       var a = cards[active];
@@ -63,14 +57,39 @@
       if (ccLink) ccLink.setAttribute('href', a.getAttribute('href'));
     };
     var go = function (idx) { active = ((idx % n) + n) % n; layout(); };
-    cards.forEach(function (card, i) {
-      card.addEventListener('click', function (e) { if (i !== active) { e.preventDefault(); go(i); } });
+    /* 3D transforms break native hit-testing, so resolve the figure under a screen-X manually */
+    var cardAtX = function (clientX) {
+      var r = ccStage.getBoundingClientRect();
+      var relx = clientX - (r.left + r.width / 2);
+      var best = -1, bestAbs = 99;
+      cards.forEach(function (card, i) {
+        var pos = relPos(i), abs = Math.abs(pos);
+        if (abs > 3) return;
+        var half = card.offsetWidth * scaleFor(abs) * 0.44;
+        var c = pos * curStep;
+        if (relx >= c - half && relx <= c + half && abs < bestAbs) { bestAbs = abs; best = i; }
+      });
+      return best;
+    };
+    carousel.addEventListener('click', function (e) {
+      if (e.target.closest('.cc-nav')) return;
+      var i = cardAtX(e.clientX);
+      if (i < 0) return;
+      if (i === active) { var h = cards[i].getAttribute('href'); if (h) window.location.href = h; }
+      else go(i);
+    });
+    carousel.addEventListener('mousemove', function (e) {
+      var i = cardAtX(e.clientX);
+      cards.forEach(function (c, idx) { c.classList.toggle('is-hover', idx === i); });
+      carousel.style.cursor = i >= 0 ? 'pointer' : '';
+    });
+    carousel.addEventListener('mouseleave', function () {
+      cards.forEach(function (c) { c.classList.remove('is-hover'); });
     });
     var prev = document.getElementById('ccPrev'), next = document.getElementById('ccNext');
     if (prev) prev.addEventListener('click', function () { go(active - 1); });
     if (next) next.addEventListener('click', function () { go(active + 1); });
-    var carousel = document.getElementById('carousel');
-    if (carousel) carousel.addEventListener('keydown', function (e) {
+    carousel.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowLeft') { e.preventDefault(); go(active - 1); }
       else if (e.key === 'ArrowRight') { e.preventDefault(); go(active + 1); }
     });
