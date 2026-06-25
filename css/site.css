@@ -46,6 +46,10 @@ body.home::before { content: ""; position: fixed; inset: 0; background: #000; z-
 .home main .section__head,
 .home main .prose { margin-left: auto; margin-right: auto; }
 .home main .hero__cta { justify-content: center; }
+/* scroll reveal — content animates in as it enters the viewport */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .75s cubic-bezier(.22, .61, .36, 1); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal, .reveal.in { opacity: 1; transform: none; transition: none; } }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: normal; line-height: .92; margin: 0; }

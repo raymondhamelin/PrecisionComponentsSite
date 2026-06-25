@@ -134,6 +134,34 @@
     layout();
   }
 
+  /* scroll reveal — content animates in as it enters the viewport */
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    var sel = '.meta-row, .eyebrow, .section-title, .prose, .lead, h1, h2, h3, p, li, blockquote, figure, .btn, .btn-row, .dual-cta, .cta-card, .svc-card, .trio-cta, .cc-detail, .phase, .num-item, .team-card, .case-card, .result-card, .pullquote, .marquee-label';
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    var sections = [].slice.call(document.querySelectorAll('main > section'));
+    sections.forEach(function (sec) {
+      if (sec.classList.contains('hero')) return;
+      var idx = 0;
+      [].slice.call(sec.querySelectorAll(sel)).forEach(function (el) {
+        if (el.closest('.cc-card')) return; /* carousel figures are JS-positioned */
+        if (el.closest('[hidden]')) return; /* JS-toggled panels (quiz result, form confirm) reveal themselves */
+        for (var p = el.parentElement; p && p !== sec; p = p.parentElement) {
+          if (p.classList.contains('reveal')) return; /* already revealed by an ancestor block */
+        }
+        el.classList.add('reveal');
+        el.style.transitionDelay = (Math.min(idx, 4) * 55) + 'ms';
+        idx++;
+        io.observe(el);
+      });
+    });
+  })();
+
   /* FAQ accordion */
   document.querySelectorAll('.faq__q').forEach(function (q) {
     q.addEventListener('click', function () { q.closest('.faq__item').classList.toggle('open'); });
