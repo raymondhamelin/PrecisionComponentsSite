@@ -9,6 +9,35 @@
     });
   }
 
+  /* nav dropdowns — click a top-level item to open its offerings */
+  var dropdownItems = [].slice.call(document.querySelectorAll('.nav-item.has-dropdown'));
+  if (dropdownItems.length) {
+    var closeDropdowns = function (except) {
+      dropdownItems.forEach(function (it) {
+        if (it === except) return;
+        it.classList.remove('open');
+        var b = it.querySelector('.nav-sub'); if (b) b.setAttribute('aria-expanded', 'false');
+      });
+    };
+    dropdownItems.forEach(function (it) {
+      var btn = it.querySelector('.nav-sub');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        var willOpen = !it.classList.contains('open');
+        closeDropdowns(it);
+        it.classList.toggle('open', willOpen);
+        btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-item.has-dropdown')) closeDropdowns(null);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeDropdowns(null);
+    });
+  }
+
   /* homepage: hide the navbar on the hero, fade it in after scrolling down */
   var header = document.querySelector('.site-header');
   var heroHero = document.querySelector('.hero--centered');
@@ -40,7 +69,7 @@
     var relPos = function (i) { var p = i - active; if (p > n / 2) p -= n; if (p < -n / 2) p += n; return p; };
     var scaleFor = function (abs) { return Math.max(0.55, 1 - abs * 0.13); };
     var layout = function () {
-      curStep = Math.max(96, Math.min(170, ccStage.offsetWidth * 0.17));
+      curStep = Math.max(120, Math.min(250, ccStage.offsetWidth * 0.22));
       cards.forEach(function (card, i) {
         var pos = relPos(i), abs = Math.abs(pos), sign = pos < 0 ? -1 : 1, hidden = abs > 3;
         var ry = abs === 0 ? 0 : -sign * 45, sc = scaleFor(abs);

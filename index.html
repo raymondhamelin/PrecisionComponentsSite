@@ -33,8 +33,24 @@
       <a class="brand" href="index.html"><img src="images/pc-logo-black.png" alt="Precision Components" /></a>
       <nav class="site-nav" id="nav">
         <a href="how-we-work.html">How We Work</a>
-        <a href="strategic-advisory-services.html">Strategic Advisory</a>
-        <a href="experiential-services.html">Experiential</a>
+        <div class="nav-item has-dropdown">
+          <button type="button" class="nav-sub" aria-expanded="false" aria-haspopup="true">Advisory</button>
+          <div class="dropdown">
+            <a href="strategic-advisory-services.html">Strategic Advisory — overview</a>
+            <a href="strategic-advisory-services.html#execution-alignment">Execution Alignment</a>
+            <a href="strategic-advisory-services.html#decision-architecture">Decision Architecture</a>
+            <a href="strategic-advisory-services.html#performance-under-pressure">Performance Under Pressure</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button type="button" class="nav-sub" aria-expanded="false" aria-haspopup="true">Experiences</button>
+          <div class="dropdown">
+            <a href="experiential-services.html">Experiences — overview</a>
+            <a href="experiential-services.html#surface-whats-real">Surface what's real</a>
+            <a href="experiential-services.html#shared-language">Create shared language</a>
+            <a href="experiential-services.html#deeper-work">Open the door to deeper work</a>
+          </div>
+        </div>
         <a href="about.html">About</a>
         <a href="insights.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -63,32 +79,47 @@
     <!-- 2 · WHAT / WHO / HOW (brief) -->
     <section class="section--alt" id="approach">
       <div class="container">
-        <div class="meta-row"><span class="l">How we work</span><span class="r">What · Who · How</span></div>
+        <div class="meta-row"><span class="l">What we offer</span><span class="r">Two suites · One system</span></div>
         <div class="section__head">
           <h2 class="section-title">We work where strategy meets execution.</h2>
         </div>
-        <div class="trio">
-          <div class="trio-card">
-            <p class="eyebrow">What we offer</p>
-            <div class="trio-card__body">
-              <h3>Two services, one system.</h3>
-              <p class="lead">Experiential catalysts that surface performance gaps and build alignment, and embedded advisory that changes how the organization operates day to day.</p>
+        <div class="svc-grid">
+          <a class="svc-card svc-card--field" href="experiential-services.html">
+            <span class="svc-card__art" style="background-image:url('images/card-field.svg')"></span>
+            <div class="svc-card__top">
+              <span class="svc-badge">Field Mode</span>
+              <h3 class="svc-title">Experiential Services</h3>
+              <span class="svc-rule"></span>
+              <div class="svc-lines">
+                <p>Create momentum.</p>
+                <p>Surface what's real.</p>
+                <p>Move teams from conversation into action.</p>
+              </div>
+              <span class="svc-explore">Explore Experiential →</span>
             </div>
-          </div>
-          <div class="trio-card">
-            <p class="eyebrow">Who it's for</p>
-            <div class="trio-card__body">
-              <h3>High-standard organizations.</h3>
-              <p class="lead">Leadership teams and senior operators at pro sports franchises, Fortune-level enterprises, federal agencies, and universities — where execution failure is costly.</p>
+            <div class="svc-card__meta">
+              <span class="svc-meta-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="5"/><path d="M8 0v3M8 13v3M0 8h3M13 8h3"/></svg></span>
+              <span class="svc-meta-txt">01 / In-person / High-friction</span>
             </div>
-          </div>
-          <div class="trio-card">
-            <p class="eyebrow">How we deliver</p>
-            <div class="trio-card__body">
-              <h3>From inside the system.</h3>
-              <p class="lead">A structured, applied framework — run by an internal team and a field network of specialists deployed by fit, so improvement holds.</p>
+          </a>
+          <a class="svc-card svc-card--command" href="strategic-advisory-services.html">
+            <span class="svc-card__art" style="background-image:url('images/card-command.svg')"></span>
+            <div class="svc-card__top">
+              <span class="svc-badge">Command Mode</span>
+              <h3 class="svc-title">Strategic Advisory Services</h3>
+              <span class="svc-rule"></span>
+              <div class="svc-lines">
+                <p>Clarify the system.</p>
+                <p>Align the leaders.</p>
+                <p>Change how the organization operates.</p>
+              </div>
+              <span class="svc-explore">Explore Advisory →</span>
             </div>
-          </div>
+            <div class="svc-card__meta">
+              <span class="svc-meta-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 5V1h4M11 1h4v4M15 11v4h-4M5 15H1v-4"/></svg></span>
+              <span class="svc-meta-txt">02 / Strategy / Operating system</span>
+            </div>
+          </a>
         </div>
         <div class="trio-cta">
           <p>Not sure which fits your organization?</p>
@@ -97,13 +128,46 @@
       </div>
     </section>
 
+    <!-- 2b · CLIENT LOGO BANNER -->
+    <section class="logo-banner" aria-label="Selected Precision Components clients">
+      <p class="marquee-label">Trusted by organizations that hold a high standard</p>
+      <div class="logo-marquee">
+        <div class="logo-track">
+            <img src="images/chiefs.png" alt="Kansas City Chiefs" />
+            <img src="images/celtics.png" alt="Boston Celtics" />
+            <img src="images/seattle-seahawks.png" alt="Seattle Seahawks" />
+            <img src="images/lions.png" alt="Detroit Lions" />
+            <img src="images/nfl.png" alt="NFL" />
+            <img src="images/fbi.png" alt="FBI" />
+            <img src="images/milwaukee-tool.png" alt="Milwaukee Tool" />
+            <img src="images/northwestern-mutual.png" alt="Northwestern Mutual" />
+            <img src="images/ussoc.png" alt="US Special Operations Command" />
+            <img src="images/uni-of-chicago.png" alt="University of Chicago" />
+            <img src="images/vatech.png" alt="Virginia Tech" />
+            <img src="images/uw-madison.png" alt="University of Wisconsin–Madison" />
+            <img src="images/chiefs.png" alt="" aria-hidden="true" />
+            <img src="images/celtics.png" alt="" aria-hidden="true" />
+            <img src="images/seattle-seahawks.png" alt="" aria-hidden="true" />
+            <img src="images/lions.png" alt="" aria-hidden="true" />
+            <img src="images/nfl.png" alt="" aria-hidden="true" />
+            <img src="images/fbi.png" alt="" aria-hidden="true" />
+            <img src="images/milwaukee-tool.png" alt="" aria-hidden="true" />
+            <img src="images/northwestern-mutual.png" alt="" aria-hidden="true" />
+            <img src="images/ussoc.png" alt="" aria-hidden="true" />
+            <img src="images/uni-of-chicago.png" alt="" aria-hidden="true" />
+            <img src="images/vatech.png" alt="" aria-hidden="true" />
+            <img src="images/uw-madison.png" alt="" aria-hidden="true" />
+          </div>
+        </div>
+    </section>
+
     <!-- 4b · SPEAKER ROSTER (fighter select) -->
     <section class="section" id="speakers">
       <div class="container">
         <div class="meta-row"><span class="l">The roster</span><span class="r">Choose a specialist</span></div>
         <div class="section__head">
-          <h2 class="section-title">The specialists who deliver the work.</h2>
-          <p class="prose" style="margin-top:24px;">A curated roster of seasoned practitioners — deployed by fit to deliver keynotes, training, and embedded engagements. Use the arrows, swipe, or tap a card to step through the roster.</p>
+          <h2 class="section-title">Your Specialists</h2>
+          <p class="prose" style="margin-top:24px;">A curated roster of seasoned practitioners — swipe or tap a card to explore.</p>
         </div>
 
         <div class="cc">
@@ -147,117 +211,22 @@
       </div>
     </section>
 
-    <!-- 3 · PROBLEM -->
-    <section class="section grid-bg">
+
+
+    <!-- 4 · ABOUT BLURB -->
+    <section class="section section--deep about-cta">
       <div class="container">
-        <div class="meta-row"><span class="l">01 — The real problem</span><span class="r">Strategy → Operations</span></div>
+        <div class="meta-row"><span class="l">The firm</span><span class="r">Earned, not borrowed</span></div>
         <div class="section__head">
-          <h2 class="section-title">The breakdown isn't where most people think it is.</h2>
+          <h2 class="section-title">The work is grounded in something real.</h2>
+          <p class="prose" style="margin-top:24px;">Precision Components was founded by an active-duty Special Forces Chief Warrant Officer and built around the performance systems of elite teams — applied inside organizations where execution can't fail.</p>
         </div>
-        <div class="prose" style="margin-top:34px;">
-          <p>Organizations invest heavily in strategy, training, and leadership development. And still — execution slips. Priorities compete. Alignment holds in the room but dissolves on the floor. Decisions that should move quickly don't.</p>
-          <p>This isn't a strategy failure. <strong>It's an operational performance problem.</strong> The gap between leadership's intent and frontline behavior is where results are won or lost — and it's rarely solved by more training, more communication, or a better framework.</p>
-          <p>It requires working inside the system itself. That's what Precision Components does.</p>
-        </div>
+        <div style="margin-top:34px;"><a href="about.html" class="btn btn--solid">About Precision Components →</a></div>
       </div>
     </section>
 
-    <!-- 3 · CREDIBILITY -->
-    <section class="section section--deep">
-      <div class="container">
-        <div class="meta-row"><span class="l">02 — Where it comes from</span><span class="r">Earned, not borrowed</span></div>
-        <div class="section__head">
-          <h2 class="section-title">Precision Components was built to work in exactly that environment.</h2>
-        </div>
-        <div class="prose" style="margin-top:34px;">
-          <p>Nick Lavery founded Precision Components after spending years operating in some of the most demanding, high-pressure environments that exist — as an active-duty Green Beret and Special Forces Chief Warrant Officer. The principles that govern how elite teams align, make decisions, and execute under pressure don't stay in those environments. They apply directly to how organizations perform.</p>
-          <p>Today, Precision Components works with leadership teams and senior operators across industries to address the breakdowns that standard advisory, training, or development programs leave unresolved. Nick and the team bring a structured, applied approach — not inspiration alone, but the operational framework to make improvement hold.</p>
-        </div>
-        <div class="pullquote" style="margin-top:50px;">
-          <p>"Selecting Precision Components to provide mentorship, perspective, and insight was one of the best decisions I have made. He provided not just the example of leadership and determination, but the path and tools to replicate his processes and overcome our internal friction points."</p>
-          <cite>PJ Langmaid · Chief · Black Forest Fire &amp; Rescue</cite>
-        </div>
-      </div>
-    </section>
 
-    <!-- 4 · HOW WE WORK -->
-    <section class="section">
-      <div class="container">
-        <div class="meta-row"><span class="l">03 — How we work</span><span class="r">Two ways in · One system</span></div>
-        <div class="section__head">
-          <h2 class="section-title">Two ways in. One system.</h2>
-          <p class="prose" style="margin-top:24px;">Precision Components operates through a single integrated model — not a menu of standalone services. Organizations typically enter through one of two paths, depending on where they are and what they need most. Both paths connect. Many clients move between them over time.</p>
-        </div>
-        <div class="paths">
-          <a class="path-card" href="experiential-services.html">
-            <p class="eyebrow">Experiential Services</p>
-            <h3>Create momentum and surface what's real.</h3>
-            <p>High-impact experiences that surface performance gaps, create alignment, and generate the shared language needed for change to take hold. These aren't events — they're catalysts. They often open the door to deeper work.</p>
-          </a>
-          <a class="path-card" href="strategic-advisory-services.html">
-            <p class="eyebrow">Strategic Advisory Services</p>
-            <h3>Change how the organization operates.</h3>
-            <p>Embedded advisory and implementation work focused on how the organization operates day to day — how decisions are made, how priorities are communicated, and where execution is breaking down between intent and outcome.</p>
-          </a>
-        </div>
-        <div style="margin-top:38px;"><a href="how-we-work.html" class="btn btn--outline">See how we work →</a></div>
-      </div>
-    </section>
 
-    <!-- 5 · CLIENTS -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="meta-row"><span class="l">04 — Clients</span><span class="r">Proof over pitch</span></div>
-        <div class="section__head">
-          <h2 class="section-title">Trusted by organizations that hold themselves to a high standard.</h2>
-          <p class="prose" style="margin-top:24px;">From professional sports franchises and Fortune-level enterprises to federal law enforcement and university leadership programs — Precision Components works with organizations where performance expectations are high and the cost of execution failure is real.</p>
-        </div>
-        <div class="logos">
-          <img src="images/chiefs.png" alt="Kansas City Chiefs logo — Precision Components client" />
-          <img src="images/celtics.png" alt="Boston Celtics logo — Precision Components client" />
-          <img src="images/precision-components-client-logo-seattle-seahawks.jpg" alt="Seattle Seahawks logo — Precision Components client" />
-          <img src="images/lions.png" alt="Detroit Lions logo — Precision Components client" />
-          <img src="images/nfl.png" alt="NFL logo — Precision Components client" />
-          <img src="images/fbi.png" alt="FBI logo — Precision Components client" />
-          <img src="images/milwaukee-tool.png" alt="Milwaukee Tool logo — Precision Components client" />
-          <img src="images/northwestern-mutual.png" alt="Northwestern Mutual logo — Precision Components client" />
-          <img src="images/ussoc.png" alt="US Special Operations Command logo — Precision Components client" />
-          <img src="images/uni-of-chicago.png" alt="University of Chicago logo — Precision Components client" />
-          <img src="images/vatech.png" alt="Virginia Tech logo — Precision Components client" />
-          <img src="images/precision-components-client-logo-university-of-wisconsin.jpg" alt="University of Wisconsin–Madison logo — Precision Components client" />
-        </div>
-        <p class="client-names">Kansas City Chiefs · Boston Celtics · Seattle Seahawks · Detroit Lions · NFL · FBI · Milwaukee Tool · Northwestern Mutual · US Special Operations Command · University of Chicago · Virginia Tech · UW Madison</p>
-      </div>
-    </section>
-
-    <!-- 6 · NICK SNAPSHOT -->
-    <section class="section section--deep">
-      <div class="container split">
-        <div class="split__media">
-          <img src="images/nick-(1).jpg" alt="Nick Lavery, founder of Precision Components, Special Forces Chief Warrant Officer" />
-          <span class="tag">Nick Lavery · Founder</span>
-        </div>
-        <div class="split__body">
-          <p class="eyebrow">05 — The founder</p>
-          <h2>The work is grounded in something real.</h2>
-          <p class="prose" style="margin-top:20px;">Nick Lavery is an active-duty Special Forces Chief Warrant Officer and the first above-the-knee amputee in military history to return to combat on a Special Forces team. He is the bestselling author of <em>Objective Secure</em> and has spent years translating the performance systems of elite military operations into frameworks that work inside complex organizations.</p>
-          <p class="prose">The experience behind Precision Components isn't borrowed from a framework. It was earned in environments where performance is non-negotiable and execution failures have real consequences.</p>
-          <div style="margin-top:30px;"><a href="about.html" class="btn btn--outline">About Nick &amp; the team →</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7 · CLOSING CTA -->
-    <section class="section grid-bg">
-      <div class="container cta-banner">
-        <p class="eyebrow">Start here</p>
-        <h2>If your organization is ready to close the gap between strategy and execution — this is where that work begins.</h2>
-        <div class="hero__cta">
-          <a href="strategic-advisory-services.html" class="btn btn--solid">Explore advisory work</a>
-          <a href="contact.html" class="btn btn--outline">Start a conversation</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">

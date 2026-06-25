@@ -32,8 +32,24 @@
       <a class="brand" href="index.html"><img src="images/pc-logo-black.png" alt="Precision Components" /></a>
       <nav class="site-nav" id="nav">
         <a href="how-we-work.html">How We Work</a>
-        <a href="strategic-advisory-services.html" class="active">Strategic Advisory</a>
-        <a href="experiential-services.html">Experiential</a>
+        <div class="nav-item has-dropdown">
+          <button type="button" class="nav-sub is-active" aria-expanded="false" aria-haspopup="true">Advisory</button>
+          <div class="dropdown">
+            <a href="strategic-advisory-services.html">Strategic Advisory — overview</a>
+            <a href="strategic-advisory-services.html#execution-alignment">Execution Alignment</a>
+            <a href="strategic-advisory-services.html#decision-architecture">Decision Architecture</a>
+            <a href="strategic-advisory-services.html#performance-under-pressure">Performance Under Pressure</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button type="button" class="nav-sub" aria-expanded="false" aria-haspopup="true">Experiences</button>
+          <div class="dropdown">
+            <a href="experiential-services.html">Experiences — overview</a>
+            <a href="experiential-services.html#surface-whats-real">Surface what's real</a>
+            <a href="experiential-services.html#shared-language">Create shared language</a>
+            <a href="experiential-services.html#deeper-work">Open the door to deeper work</a>
+          </div>
+        </div>
         <a href="about.html">About</a>
         <a href="insights.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -72,9 +88,9 @@
           <p class="prose" style="margin-top:24px;">The organizations Precision Components works with typically share some version of these problems — regardless of industry, size, or how successful they've been.</p>
         </div>
         <div class="num-grid">
-          <div class="num-item"><span class="num">01</span><h3>Execution Alignment</h3><p>Leadership's intent is only as valuable as how clearly it reaches the front line. We identify where that signal is degrading — in the handoffs, the decisions, the daily behavior — and build the operational structure to close it.</p></div>
-          <div class="num-item"><span class="num">02</span><h3>Decision Architecture</h3><p>In most organizations, the right decisions are being made too slowly, too inconsistently, or at the wrong level. We work with leadership teams to clarify how decisions get made, who owns what, and how that clarity propagates into the system.</p></div>
-          <div class="num-item"><span class="num">03</span><h3>Performance Under Pressure</h3><p>The work is designed for real conditions — not offsites, not ideal scenarios. We focus on how teams and leaders operate when complexity is high, stakes are real, and the margin for inconsistency is low.</p></div>
+          <div class="num-item" id="execution-alignment"><span class="num">01</span><h3>Execution Alignment</h3><p>Leadership's intent is only as valuable as how clearly it reaches the front line. We identify where that signal is degrading — in the handoffs, the decisions, the daily behavior — and build the operational structure to close it.</p></div>
+          <div class="num-item" id="decision-architecture"><span class="num">02</span><h3>Decision Architecture</h3><p>In most organizations, the right decisions are being made too slowly, too inconsistently, or at the wrong level. We work with leadership teams to clarify how decisions get made, who owns what, and how that clarity propagates into the system.</p></div>
+          <div class="num-item" id="performance-under-pressure"><span class="num">03</span><h3>Performance Under Pressure</h3><p>The work is designed for real conditions — not offsites, not ideal scenarios. We focus on how teams and leaders operate when complexity is high, stakes are real, and the margin for inconsistency is low.</p></div>
         </div>
       </div>
     </section>
